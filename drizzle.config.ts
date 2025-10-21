@@ -6,6 +6,7 @@ export default defineConfig({
     schema: './db/schema/*',
     dialect: 'postgresql',
     dbCredentials: {
-        url: process.env.DATABASE_URL!,
+        // Use DIRECT_URL for migrations (port 5432), fallback to DATABASE_URL
+        url: process.env.DIRECT_URL || process.env.DATABASE_URL!,
     },
 });

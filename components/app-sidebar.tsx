@@ -39,112 +39,43 @@ const staticData = {
   navMain: [
     {
       title: "Dashboard",
-      url: "#",
+      url: "/dashboard",
       icon: IconDashboard,
     },
     {
-      title: "Lifecycle",
-      url: "#",
-      icon: IconListDetails,
+      title: "Staff",
+      url: "/dashboard/staff",
+      icon: IconUsers,
     },
     {
-      title: "Analytics",
-      url: "#",
-      icon: IconChartBar,
-    },
-    {
-      title: "Projects",
-      url: "#",
+      title: "Jurusan",
+      url: "/dashboard/departments",
       icon: IconFolder,
     },
     {
-      title: "Team",
-      url: "#",
-      icon: IconUsers,
-    },
-  ],
-  navClouds: [
-    {
-      title: "Capture",
-      icon: IconCamera,
-      isActive: true,
-      url: "#",
-      items: [
-        {
-          title: "Active Proposals",
-          url: "#",
-        },
-        {
-          title: "Archived",
-          url: "#",
-        },
-      ],
-    },
-    {
-      title: "Proposal",
+      title: "Halaman",
+      url: "/dashboard/pages",
       icon: IconFileDescription,
-      url: "#",
-      items: [
-        {
-          title: "Active Proposals",
-          url: "#",
-        },
-        {
-          title: "Archived",
-          url: "#",
-        },
-      ],
     },
     {
-      title: "Prompts",
-      icon: IconFileAi,
-      url: "#",
-      items: [
-        {
-          title: "Active Proposals",
-          url: "#",
-        },
-        {
-          title: "Archived",
-          url: "#",
-        },
-      ],
+      title: "Aplikasi",
+      url: "/dashboard/applications",
+      icon: IconDatabase,
     },
   ],
   navSecondary: [
     {
-      title: "Settings",
-      url: "#",
-      icon: IconSettings,
-    },
-    {
-      title: "Get Help",
-      url: "#",
+      title: "Pesan Kontak",
+      url: "/dashboard/contacts",
       icon: IconHelp,
     },
     {
-      title: "Search",
-      url: "#",
+      title: "Lihat Website",
+      url: "/",
       icon: IconSearch,
     },
   ],
-  documents: [
-    {
-      name: "Data Library",
-      url: "#",
-      icon: IconDatabase,
-    },
-    {
-      name: "Reports",
-      url: "#",
-      icon: IconReport,
-    },
-    {
-      name: "Word Assistant",
-      url: "#",
-      icon: IconFileWord,
-    },
-  ],
+  documents: [],
 }
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
@@ -169,9 +100,11 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
               asChild
               className="data-[slot=sidebar-menu-button]:!p-1.5"
             >
-              <Link href="/">
-                <Image src="/codeguide-logo.png" alt="CodeGuide" width={32} height={32} className="rounded-lg" />
-                <span className="text-base font-semibold font-parkinsans">CodeGuide</span>
+              <Link href="/dashboard">
+                <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary text-primary-foreground">
+                  <span className="text-lg font-bold">SMK</span>
+                </div>
+                <span className="text-base font-semibold">SMK Bina Mandiri</span>
               </Link>
             </SidebarMenuButton>
           </SidebarMenuItem>
@@ -179,7 +112,6 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
       </SidebarHeader>
       <SidebarContent>
         <NavMain items={staticData.navMain} />
-        <NavDocuments items={staticData.documents} />
         <NavSecondary items={staticData.navSecondary} className="mt-auto" />
       </SidebarContent>
       <SidebarFooter>
