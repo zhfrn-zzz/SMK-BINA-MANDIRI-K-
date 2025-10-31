@@ -6,7 +6,8 @@ import { Button, buttonVariants } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 import { MenuToggleIcon } from '@/components/ui/menu-toggle-icon';
 import { useScroll } from '@/components/ui/use-scroll';
-import { GraduationCap, ChevronDown } from 'lucide-react';
+import { ThemeToggleModern } from '@/components/ui/theme-toggle-modern';
+import { GraduationCap } from 'lucide-react';
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -204,7 +205,8 @@ export function Header() {
               </NavigationMenuList>
             </NavigationMenu>
 
-            <Button asChild variant="outline" size="sm" className="ml-2">
+            <ThemeToggleModern className="ml-2" />
+            <Button asChild variant="outline" size="sm">
               <Link href="/sign-in">Masuk</Link>
             </Button>
             <Button asChild size="sm" className="bg-secondary hover:bg-secondary/90">
@@ -212,14 +214,16 @@ export function Header() {
             </Button>
           </div>
 
-          <Button
-            size="icon"
-            variant="outline"
-            onClick={() => setOpen(!open)}
-            className="md:hidden"
-          >
-            <MenuToggleIcon open={open} className="size-5" duration={300} />
-          </Button>
+          <div className="flex items-center gap-2 md:hidden">
+            <ThemeToggleModern />
+            <Button
+              size="icon"
+              variant="outline"
+              onClick={() => setOpen(!open)}
+            >
+              <MenuToggleIcon open={open} className="size-5" duration={300} />
+            </Button>
+          </div>
         </nav>
 
       <div
@@ -311,6 +315,10 @@ export function Header() {
           </div>
 
           <div className="flex flex-col gap-2">
+            <div className="flex items-center justify-between px-4 py-2">
+              <span className="text-sm font-medium">Theme</span>
+              <ThemeToggleModern />
+            </div>
             <Button asChild variant="outline" className="w-full">
               <Link href="/sign-in" onClick={() => setOpen(false)}>
                 Masuk

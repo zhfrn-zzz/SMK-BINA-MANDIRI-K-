@@ -1,221 +1,281 @@
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Building2, Users, Briefcase, GraduationCap, Award, TrendingUp } from 'lucide-react';
+import Link from 'next/link';
+import { Button } from '@/components/ui/button';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Badge } from '@/components/ui/badge';
+import { BlurFade } from '@/components/ui/blur-fade';
+import { BackgroundGradient } from '@/components/ui/background-gradient';
+import { Briefcase, Building2, Users, TrendingUp, Award, CheckCircle, ArrowRight, Factory, Handshake } from 'lucide-react';
 
 export default function HubinPage() {
   return (
-    <div className="container mx-auto px-4 py-12">
-      <div className="max-w-6xl mx-auto">
-        {/* Header */}
-        <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold mb-4">HUBIN</h1>
-          <p className="text-xl text-muted-foreground mb-2">Hubungan Industri</p>
-          <div className="h-1 w-24 bg-primary mx-auto"></div>
+    <div className="flex flex-col">
+      {/* Hero Section */}
+      <section className="relative overflow-hidden py-12 md:py-20 lg:py-24 bg-gradient-to-br from-primary/5 via-accent/5 to-secondary/5">
+        <div className="container relative mx-auto px-4">
+          <div className="max-w-4xl mx-auto text-center">
+            <BlurFade delay={0.1} inView>
+              <Badge className="mb-4 bg-primary/10 text-primary hover:bg-primary/20 border-primary/20">
+                Hubungan Industri
+              </Badge>
+            </BlurFade>
+            
+            <BlurFade delay={0.2} inView>
+              <h1 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl mb-6">
+                HUBIN
+              </h1>
+            </BlurFade>
+
+            <BlurFade delay={0.3} inView>
+              <p className="text-lg text-muted-foreground md:text-xl max-w-3xl mx-auto">
+                Hubungan Industri (HUBIN) - Jembatan antara pendidikan dan dunia kerja untuk 
+                mempersiapkan siswa menghadapi tantangan industri modern
+              </p>
+            </BlurFade>
+          </div>
         </div>
+      </section>
 
-        {/* Introduction */}
-        <Card className="mb-8">
-          <CardContent className="p-8">
-            <div className="prose prose-slate dark:prose-invert max-w-none">
-              <p className="text-lg leading-relaxed">
-                HUBIN (Hubungan Industri) SMK Bina Mandiri merupakan unit yang mengelola kerjasama antara sekolah dengan dunia usaha dan dunia industri (DUDI). Melalui HUBIN, kami memastikan bahwa pembelajaran di sekolah selaras dengan kebutuhan industri, sehingga lulusan kami siap kerja dan memiliki kompetensi yang dibutuhkan oleh pasar kerja.
-              </p>
-            </div>
-          </CardContent>
-        </Card>
-
-        {/* Main Programs */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
-          <Card>
-            <CardHeader>
-              <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
-                <Briefcase className="w-6 h-6 text-primary" />
-              </div>
-              <CardTitle>Praktik Kerja Industri (PRAKERIN)</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className="text-muted-foreground">
-                Program magang siswa di perusahaan mitra selama 3-6 bulan untuk mendapatkan pengalaman kerja nyata dan meningkatkan kompetensi.
-              </p>
-            </CardContent>
-          </Card>
-
-          <Card>
-            <CardHeader>
-              <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
-                <Users className="w-6 h-6 text-primary" />
-              </div>
-              <CardTitle>Kunjungan Industri</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className="text-muted-foreground">
-                Kegiatan kunjungan siswa ke perusahaan untuk melihat langsung proses produksi dan teknologi yang digunakan di industri.
-              </p>
-            </CardContent>
-          </Card>
-
-          <Card>
-            <CardHeader>
-              <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
-                <GraduationCap className="w-6 h-6 text-primary" />
-              </div>
-              <CardTitle>Teaching Factory</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className="text-muted-foreground">
-                Pembelajaran berbasis produksi/jasa yang mengacu pada standar dan prosedur yang berlaku di industri.
-              </p>
-            </CardContent>
-          </Card>
-
-          <Card>
-            <CardHeader>
-              <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
-                <Award className="w-6 h-6 text-primary" />
-              </div>
-              <CardTitle>Sertifikasi Kompetensi</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className="text-muted-foreground">
-                Program sertifikasi profesi bagi siswa melalui Lembaga Sertifikasi Profesi (LSP) untuk meningkatkan daya saing lulusan.
-              </p>
-            </CardContent>
-          </Card>
-
-          <Card>
-            <CardHeader>
-              <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
-                <Building2 className="w-6 h-6 text-primary" />
-              </div>
-              <CardTitle>Job Fair & Recruitment</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className="text-muted-foreground">
-                Bursa kerja khusus (job fair) yang mempertemukan lulusan dengan perusahaan yang membutuhkan tenaga kerja.
-              </p>
-            </CardContent>
-          </Card>
-
-          <Card>
-            <CardHeader>
-              <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
-                <TrendingUp className="w-6 h-6 text-primary" />
-              </div>
-              <CardTitle>Bursa Kerja Khusus (BKK)</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className="text-muted-foreground">
-                Layanan informasi lowongan kerja dan penempatan kerja bagi lulusan SMK Bina Mandiri.
-              </p>
-            </CardContent>
-          </Card>
-        </div>
-
-        {/* Industry Partners */}
-        <Card className="mb-8">
-          <CardHeader>
-            <CardTitle className="text-2xl">Mitra Industri</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <p className="text-muted-foreground mb-6">
-              SMK Bina Mandiri telah menjalin kerjasama dengan berbagai perusahaan dan industri terkemuka, antara lain:
-            </p>
-            <div className="grid md:grid-cols-2 gap-4">
-              <div className="space-y-2">
-                <h4 className="font-semibold text-primary">Bidang Teknik Komputer & Jaringan:</h4>
-                <ul className="space-y-1 text-muted-foreground">
-                  <li className="flex items-start">
-                    <span className="text-primary mr-2">•</span>
-                    <span>PT. Telkom Indonesia</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-primary mr-2">•</span>
-                    <span>PT. Indosat Ooredoo</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-primary mr-2">•</span>
-                    <span>PT. XL Axiata</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-primary mr-2">•</span>
-                    <span>Berbagai perusahaan IT & Software House</span>
-                  </li>
-                </ul>
-              </div>
-
-              <div className="space-y-2">
-                <h4 className="font-semibold text-primary">Bidang Teknik Otomotif:</h4>
-                <ul className="space-y-1 text-muted-foreground">
-                  <li className="flex items-start">
-                    <span className="text-primary mr-2">•</span>
-                    <span>PT. Astra Honda Motor</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-primary mr-2">•</span>
-                    <span>PT. Yamaha Indonesia Motor</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-primary mr-2">•</span>
-                    <span>PT. Toyota Astra Motor</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-primary mr-2">•</span>
-                    <span>Berbagai bengkel resmi & authorized dealer</span>
-                  </li>
-                </ul>
+      {/* Main Image */}
+      <section className="py-8">
+        <div className="container mx-auto px-4">
+          <BlurFade delay={0.2} inView>
+            <div className="relative aspect-[21/9] overflow-hidden rounded-2xl border bg-muted max-w-6xl mx-auto">
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-accent/20 to-secondary/20" />
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className="text-center space-y-4 p-8">
+                  <Handshake className="h-24 w-24 mx-auto text-primary/40" />
+                  <p className="text-sm text-muted-foreground">
+                    Kerjasama dengan industri partner
+                  </p>
+                </div>
               </div>
             </div>
-          </CardContent>
-        </Card>
-
-        {/* Statistics */}
-        <div className="grid md:grid-cols-4 gap-4 mb-8">
-          <Card>
-            <CardContent className="p-6 text-center">
-              <div className="text-4xl font-bold text-primary mb-2">50+</div>
-              <p className="text-sm text-muted-foreground">Mitra Industri</p>
-            </CardContent>
-          </Card>
-
-          <Card>
-            <CardContent className="p-6 text-center">
-              <div className="text-4xl font-bold text-primary mb-2">85%</div>
-              <p className="text-sm text-muted-foreground">Tingkat Penyerapan Lulusan</p>
-            </CardContent>
-          </Card>
-
-          <Card>
-            <CardContent className="p-6 text-center">
-              <div className="text-4xl font-bold text-primary mb-2">300+</div>
-              <p className="text-sm text-muted-foreground">Siswa PRAKERIN/Tahun</p>
-            </CardContent>
-          </Card>
-
-          <Card>
-            <CardContent className="p-6 text-center">
-              <div className="text-4xl font-bold text-primary mb-2">95%</div>
-              <p className="text-sm text-muted-foreground">Siswa Tersertifikasi</p>
-            </CardContent>
-          </Card>
+          </BlurFade>
         </div>
+      </section>
 
-        {/* Contact */}
-        <Card>
-          <CardHeader>
-            <CardTitle>Hubungi HUBIN</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <p className="text-muted-foreground mb-4">
-              Untuk informasi lebih lanjut mengenai kerjasama industri, PRAKERIN, atau lowongan kerja, silakan hubungi:
-            </p>
-            <div className="space-y-2">
-              <p><span className="font-semibold">Koordinator HUBIN:</span> Bapak Drs. Bambang Sutrisno</p>
-              <p><span className="font-semibold">Email:</span> hubin@smkbinamandiri.sch.id</p>
-              <p><span className="font-semibold">Telepon:</span> (021) 1234-5678 ext. 102</p>
-              <p><span className="font-semibold">WhatsApp:</span> +62 812-3456-7890</p>
+      {/* About HUBIN */}
+      <section className="py-16 md:py-24">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            <BlurFade delay={0.1} inView>
+              <div className="mb-12 text-center">
+                <h2 className="mb-4 text-3xl font-bold md:text-4xl">
+                  Tentang HUBIN
+                </h2>
+                <p className="text-muted-foreground text-lg">
+                  Membangun sinergi antara sekolah dan industri
+                </p>
+              </div>
+            </BlurFade>
+
+            <BlurFade delay={0.2} inView>
+              <Card>
+                <CardContent className="p-8">
+                  <p className="text-lg leading-relaxed text-muted-foreground mb-4">
+                    Hubungan Industri (HUBIN) SMK Bina Mandiri berperan penting dalam memfasilitasi 
+                    kerjasama antara sekolah dengan dunia usaha dan dunia industri (DUDI). Melalui 
+                    program HUBIN, kami memastikan siswa mendapatkan pengalaman praktis yang relevan 
+                    dengan kebutuhan industri.
+                  </p>
+                  <p className="text-lg leading-relaxed text-muted-foreground">
+                    Kami berkomitmen untuk terus memperluas jaringan kerjasama dengan berbagai 
+                    perusahaan dan industri, sehingga lulusan SMK Bina Mandiri memiliki peluang 
+                    yang lebih besar untuk berkarir di perusahaan-perusahaan terkemuka.
+                  </p>
+                </CardContent>
+              </Card>
+            </BlurFade>
+          </div>
+        </div>
+      </section>
+
+      {/* Programs */}
+      <section className="py-16 md:py-24 bg-muted/30">
+        <div className="container mx-auto px-4">
+          <BlurFade delay={0.1} inView>
+            <div className="mb-12 text-center">
+              <h2 className="mb-4 text-3xl font-bold md:text-4xl">
+                Program HUBIN
+              </h2>
+              <p className="mx-auto max-w-2xl text-muted-foreground">
+                Berbagai program untuk mempersiapkan siswa memasuki dunia kerja
+              </p>
             </div>
-          </CardContent>
-        </Card>
-      </div>
+          </BlurFade>
+
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-auto">
+            {[
+              {
+                icon: Briefcase,
+                title: 'Praktik Kerja Lapangan (PKL)',
+                description: 'Program magang di perusahaan partner untuk memberikan pengalaman kerja nyata kepada siswa',
+                delay: 0.2,
+              },
+              {
+                icon: Users,
+                title: 'Kunjungan Industri',
+                description: 'Kunjungan ke berbagai perusahaan untuk melihat langsung proses kerja di industri',
+                delay: 0.3,
+              },
+              {
+                icon: Award,
+                title: 'Sertifikasi Kompetensi',
+                description: 'Program sertifikasi untuk meningkatkan kredibilitas dan kompetensi siswa',
+                delay: 0.4,
+              },
+              {
+                icon: Building2,
+                title: 'Job Fair',
+                description: 'Bursa kerja khusus untuk menghubungkan lulusan dengan perusahaan yang membutuhkan',
+                delay: 0.5,
+              },
+              {
+                icon: TrendingUp,
+                title: 'Pelatihan Industri',
+                description: 'Pelatihan khusus dari praktisi industri untuk meningkatkan skill siswa',
+                delay: 0.6,
+              },
+              {
+                icon: Factory,
+                title: 'Teaching Factory',
+                description: 'Pembelajaran berbasis produksi dengan standar industri di lingkungan sekolah',
+                delay: 0.7,
+              },
+            ].map((program, index) => (
+              <BlurFade key={index} delay={program.delay} inView>
+                <BackgroundGradient className="rounded-[22px] h-full">
+                  <Card className="h-full border-none shadow-none bg-white dark:bg-zinc-900">
+                    <CardHeader>
+                      <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                        <program.icon className="h-6 w-6" />
+                      </div>
+                      <CardTitle className="text-xl">{program.title}</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <CardDescription className="text-base">
+                        {program.description}
+                      </CardDescription>
+                    </CardContent>
+                  </Card>
+                </BackgroundGradient>
+              </BlurFade>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Industry Partners */}
+      <section className="py-16 md:py-24">
+        <div className="container mx-auto px-4">
+          <BlurFade delay={0.1} inView>
+            <div className="mb-12 text-center">
+              <h2 className="mb-4 text-3xl font-bold md:text-4xl">
+                Mitra Industri Kami
+              </h2>
+              <p className="mx-auto max-w-2xl text-muted-foreground">
+                Perusahaan dan industri yang telah bekerjasama dengan SMK Bina Mandiri
+              </p>
+            </div>
+          </BlurFade>
+
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4 max-w-6xl mx-auto">
+            {[
+              { name: 'PT. Teknologi Indonesia', category: 'IT & Software', delay: 0.2 },
+              { name: 'CV. Maju Motor', category: 'Otomotif', delay: 0.3 },
+              { name: 'PT. Astra International', category: 'Otomotif', delay: 0.4 },
+              { name: 'PT. Telkom Indonesia', category: 'Telekomunikasi', delay: 0.5 },
+              { name: 'PT. Yamaha Indonesia', category: 'Otomotif', delay: 0.6 },
+              { name: 'PT. Honda Prospect Motor', category: 'Otomotif', delay: 0.7 },
+              { name: 'PT. Indosat Ooredoo', category: 'Telekomunikasi', delay: 0.8 },
+              { name: 'PT. XL Axiata', category: 'Telekomunikasi', delay: 0.9 },
+            ].map((partner, index) => (
+              <BlurFade key={index} delay={partner.delay} inView>
+                <Card className="h-full hover:shadow-lg transition-shadow">
+                  <CardContent className="p-6">
+                    <div className="aspect-video bg-gradient-to-br from-primary/10 to-secondary/10 rounded-lg mb-4 flex items-center justify-center">
+                      <Building2 className="h-12 w-12 text-primary/40" />
+                    </div>
+                    <h3 className="font-semibold mb-1">{partner.name}</h3>
+                    <p className="text-sm text-muted-foreground">{partner.category}</p>
+                  </CardContent>
+                </Card>
+              </BlurFade>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Benefits */}
+      <section className="py-16 md:py-24 bg-muted/30">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            <BlurFade delay={0.1} inView>
+              <div className="mb-12 text-center">
+                <h2 className="mb-4 text-3xl font-bold md:text-4xl">
+                  Manfaat Program HUBIN
+                </h2>
+              </div>
+            </BlurFade>
+
+            <div className="grid gap-4 md:grid-cols-2">
+              {[
+                'Pengalaman kerja nyata di industri',
+                'Networking dengan profesional industri',
+                'Peningkatan kompetensi dan skill',
+                'Sertifikasi yang diakui industri',
+                'Peluang kerja setelah lulus',
+                'Pemahaman budaya kerja profesional',
+                'Akses ke teknologi terkini',
+                'Bimbingan dari praktisi berpengalaman',
+              ].map((benefit, index) => (
+                <BlurFade key={index} delay={0.2 + index * 0.1} inView>
+                  <Card>
+                    <CardContent className="p-4 flex items-center gap-3">
+                      <CheckCircle className="h-5 w-5 text-secondary flex-shrink-0" />
+                      <span className="text-muted-foreground">{benefit}</span>
+                    </CardContent>
+                  </Card>
+                </BlurFade>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-16 md:py-24">
+        <div className="container mx-auto px-4">
+          <BlurFade delay={0.1} inView>
+            <Card className="bg-gradient-to-br from-primary via-primary/95 to-primary/90 border-none text-primary-foreground">
+              <CardContent className="p-12 text-center">
+                <h2 className="mb-4 text-3xl font-bold md:text-4xl">
+                  Tertarik Bergabung?
+                </h2>
+                <p className="mb-8 text-lg text-primary-foreground/90 max-w-2xl mx-auto">
+                  Dapatkan pengalaman belajar yang terhubung langsung dengan dunia industri
+                </p>
+                <div className="flex flex-wrap justify-center gap-4">
+                  <Button asChild size="lg" className="bg-secondary hover:bg-secondary/90 text-secondary-foreground">
+                    <Link href="/spmb" className="group">
+                      Daftar Sekarang
+                      <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                    </Link>
+                  </Button>
+                  <Button 
+                    asChild 
+                    size="lg" 
+                    variant="outline"
+                    className="border-primary-foreground/20 bg-transparent text-primary-foreground hover:bg-primary-foreground/10"
+                  >
+                    <Link href="/contact">Hubungi Kami</Link>
+                  </Button>
+                </div>
+              </CardContent>
+            </Card>
+          </BlurFade>
+        </div>
+      </section>
     </div>
   );
 }
