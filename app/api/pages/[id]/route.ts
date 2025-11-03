@@ -5,11 +5,17 @@ import { eq } from 'drizzle-orm';
 
 export async function GET(
   request: NextRequest,
-  context: { params: Promise<{ id: string }> }
+  { params }: { params: { id: string } }
 ) {
   try {
-    const params = await context.params;
-    const pageId = parseInt(params.id);
+    const pageId = Number(params.id);
+
+    if (Number.isNaN(pageId)) {
+      return NextResponse.json(
+        { error: 'Invalid page id' },
+        { status: 400 }
+      );
+    }
     
     const [page] = await db
       .select()
@@ -36,11 +42,17 @@ export async function GET(
 
 export async function PUT(
   request: NextRequest,
-  context: { params: Promise<{ id: string }> }
+  { params }: { params: { id: string } }
 ) {
   try {
-    const params = await context.params;
-    const pageId = parseInt(params.id);
+    const pageId = Number(params.id);
+
+    if (Number.isNaN(pageId)) {
+      return NextResponse.json(
+        { error: 'Invalid page id' },
+        { status: 400 }
+      );
+    }
     const body = await request.json();
     
     const { title, content } = body;

@@ -5,7 +5,7 @@ import { Badge } from '@/components/ui/badge';
 import { BlurFade } from '@/components/ui/blur-fade';
 import { BackgroundGradient } from '@/components/ui/background-gradient';
 import { HomeParticles } from '@/components/home-particles';
-import { GraduationCap, Target, Eye, Award, Users, Building2, BookOpen, TrendingUp, ArrowRight } from 'lucide-react';
+import { Target, Eye, Award, Users, Building2, BookOpen, TrendingUp, ArrowRight } from 'lucide-react';
 
 export default function AboutPage() {
   return (

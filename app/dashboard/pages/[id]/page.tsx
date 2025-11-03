@@ -23,26 +23,51 @@ export default function EditPagePage({ params }: { params: { id: string } }) {
   });
 
   useEffect(() => {
-    fetchPage();
-  }, [params.id]);
+    let isMounted = true;
 
-  const fetchPage = async () => {
-    try {
-      const response = await fetch(`/api/pages/${params.id}`);
-      if (response.ok) {
+    const loadPage = async () => {
+      setLoading(true);
+      try {
+        const response = await fetch(`/api/pages/${params.id}`);
+
+        if (!response.ok) {
+          const errorData = await response.json().catch(() => null);
+          if (isMounted) {
+            toast({
+              title: 'Error',
+              description: errorData?.error ?? 'Gagal memuat data halaman',
+              variant: 'destructive',
+            });
+          }
+          return;
+        }
+
         const data = await response.json();
-        setPageData(data);
+        if (isMounted) {
+          setPageData(data);
+        }
+      } catch (error) {
+        console.error('Error fetching page:', error);
+        if (isMounted) {
+          toast({
+            title: 'Error',
+            description: 'Gagal memuat data halaman',
+            variant: 'destructive',
+          });
+        }
+      } finally {
+        if (isMounted) {
+          setLoading(false);
+        }
       }
-    } catch (error) {
-      toast({
-        title: 'Error',
-        description: 'Gagal memuat data halaman',
-        variant: 'destructive',
-      });
-    } finally {
-      setLoading(false);
-    }
-  };
+    };
+
+    loadPage();
+
+    return () => {
+      isMounted = false;
+    };
+  }, [params.id, toast]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -55,16 +80,23 @@ export default function EditPagePage({ params }: { params: { id: string } }) {
         body: JSON.stringify(pageData),
       });
 
-      if (response.ok) {
+      if (!response.ok) {
+        const errorData = await response.json().catch(() => null);
         toast({
-          title: 'Berhasil',
-          description: 'Halaman berhasil diperbarui',
+          title: 'Error',
+          description: errorData?.error ?? 'Gagal memperbarui halaman',
+          variant: 'destructive',
         });
-        router.push('/dashboard/pages');
-      } else {
-        throw new Error('Failed to update');
+        return;
       }
+
+      toast({
+        title: 'Berhasil',
+        description: 'Halaman berhasil diperbarui',
+      });
+      router.push('/dashboard/pages');
     } catch (error) {
+      console.error('Error updating page:', error);
       toast({
         title: 'Error',
         description: 'Gagal memperbarui halaman',

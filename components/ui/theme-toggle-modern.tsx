@@ -32,20 +32,16 @@ export function ThemeToggleModern({ className }: ThemeToggleProps) {
   }
 
   return (
-    <div
+    <button
+      type="button"
       className={cn(
         "flex w-16 h-8 p-1 rounded-full cursor-pointer transition-all duration-300",
         isDark ? "bg-zinc-950 border border-zinc-800" : "bg-white border border-zinc-200",
         className
       )}
       onClick={() => setTheme(isDark ? "light" : "dark")}
-      role="button"
-      tabIndex={0}
-      onKeyDown={(e) => {
-        if (e.key === "Enter" || e.key === " ") {
-          setTheme(isDark ? "light" : "dark")
-        }
-      }}
+      aria-label="Toggle theme"
+      aria-pressed={isDark}
     >
       <div className="flex justify-between items-center w-full relative">
         <div
@@ -73,6 +69,6 @@ export function ThemeToggleModern({ className }: ThemeToggleProps) {
           )}
         </div>
       </div>
-    </div>
+    </button>
   )
 }
